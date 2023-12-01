@@ -1,9 +1,6 @@
 #include "Day1.h"
 
-#include <cassert>
 #include <ranges>
-#include <set>
-#include <unordered_map>
 
 using namespace std;
 
