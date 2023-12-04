@@ -26,3 +26,13 @@ int Parser::GetNumberOfLines() const noexcept
 {
 	return static_cast<int>(fileContents.size());
 }
+
+int Parser::GetNumberFromStringView(const std::string_view str)
+{
+	int num;
+	if (const auto [ptr, ec] = from_chars(str.data(), str.data() + str.size(), num); ec == errc::invalid_argument)
+	{
+		throw exception("Invalid number was parsed...");
+	}
+	return num;
+}

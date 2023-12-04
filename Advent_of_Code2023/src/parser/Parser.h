@@ -12,5 +12,7 @@ public:
 
 	[[nodiscard]] std::string_view GetLine(uint32_t lineNumber) const;
 	[[nodiscard]] int GetNumberOfLines() const noexcept;
+
+	[[nodiscard]] static int GetNumberFromStringView(std::string_view str);
 };
 
