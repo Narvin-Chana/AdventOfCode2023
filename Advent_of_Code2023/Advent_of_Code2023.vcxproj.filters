@@ -21,13 +21,7 @@
     <ClCompile Include="src\parser\Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\days\day1\Day1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\days\day2\Day2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\days\day3\Day3.cpp">
+    <ClCompile Include="src\days\Day4.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,13 +29,22 @@
     <ClInclude Include="src\parser\Parser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\days\day1\Day1.h">
+    <ClInclude Include="src\days\Day1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\days\day2\Day2.h">
+    <ClInclude Include="src\days\Day2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\days\day3\Day3.h">
+    <ClInclude Include="src\days\Day3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Day.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DayExecutor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\days\Day4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

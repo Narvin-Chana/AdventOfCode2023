@@ -131,16 +131,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\days\day3\Day3.cpp" />
-    <ClCompile Include="src\days\day2\Day2.cpp" />
-    <ClCompile Include="src\days\day1\Day1.cpp" />
     <ClCompile Include="src\parser\Parser.cpp" />
     <ClCompile Include="src\Advent_of_Code2023.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\days\day3\Day3.h" />
-    <ClInclude Include="src\days\day2\Day2.h" />
-    <ClInclude Include="src\days\day1\Day1.h" />
+    <ClInclude Include="src\days\Day4.h" />
+    <ClInclude Include="src\days\Day3.h" />
+    <ClInclude Include="src\days\Day2.h" />
+    <ClInclude Include="src\days\Day1.h" />
+    <ClInclude Include="src\DayExecutor.h" />
+    <ClInclude Include="src\Day.h" />
     <ClInclude Include="src\parser\Parser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

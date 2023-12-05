@@ -1,17 +1,17 @@
-#include "Day3.h"
+#pragma once
+#include "../Day.h"
+#include "../parser/Parser.h"
 
-#include <algorithm>
-#include <charconv>
-
-using namespace std;
-
-Day3::Day3() :
-	parser(InputFile)
-{}
-
-
-int Day3::GetSumOfPartNumbers() const
+inline bool DoesLineSubstringContainSymbol(const std::string_view line, const size_t firstPos, const size_t lastPos)
 {
+	const size_t pos = line.substr(firstPos, lastPos - firstPos + 1).find_first_not_of(".\n0123456789");
+	return pos != string_view::npos;
+}
+
+inline std::string Day<3>::PartOne()
+{
+	partOneDescriptor = "Sum of part numbers";
+
 	int sumOfParts = 0;
 
 	string_view previousLine;
@@ -78,11 +78,13 @@ int Day3::GetSumOfPartNumbers() const
 		previousLine = line;
 	}
 
-	return sumOfParts;
+	return to_string(sumOfParts);
 }
 
-int Day3::GetSumOfGearRatios() const
+inline std::string Day<3>::PartTwo()
 {
+	partTwoDescriptor = "Sum of gear ratios";
+
 	int sumOfGearRatios = 0;
 
 	string_view previousLine;
@@ -133,7 +135,7 @@ int Day3::GetSumOfGearRatios() const
 			// Previous line check
 			{
 				string_view prev = previousLine;
-				while(!prev.empty())
+				while (!prev.empty())
 				{
 					const size_t numberStartIndex = prev.find_first_of("0123456789");
 					if (numberStartIndex == string_view::npos)
@@ -214,11 +216,5 @@ int Day3::GetSumOfGearRatios() const
 		previousLine = line;
 	}
 
-	return sumOfGearRatios;
-}
-
-bool Day3::DoesLineSubstringContainSymbol(const std::string_view line, const size_t firstPos, const size_t lastPos)
-{
-	const size_t pos = line.substr(firstPos, lastPos - firstPos + 1).find_first_not_of(".\n0123456789");
-	return pos != string_view::npos;
+	return to_string(sumOfGearRatios);
 }

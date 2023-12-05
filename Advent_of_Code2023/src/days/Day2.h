@@ -1,15 +1,29 @@
-#include "Day2.h"
-
+#pragma once
 #include <charconv>
+#include <string>
+#include "../Day.h"
 
-using namespace std;
-
-Day2::Day2()
-	: parser(InputFile)
-{}
-
-int Day2::CountIDSumOfPossibleGames(const Bag& bag) const
+struct Bag
 {
+	int redCubes;
+	int greenCubes;
+	int blueCubes;
+
+	[[nodiscard]] int GetPower() const noexcept
+	{
+		return redCubes * greenCubes * blueCubes;
+	}
+	bool operator==(const Bag& other) const
+	{
+		return redCubes == other.redCubes && greenCubes == other.greenCubes && blueCubes == other.blueCubes;
+	}
+};
+
+inline std::string Day<2>::PartOne()
+{
+	constexpr Bag bag{12, 13, 14};
+	partOneDescriptor = "Sum of valid game ids";
+
 	int sumOfIds = 0;
 
 	for (int i = 0; i < parser.GetNumberOfLines(); ++i)
@@ -101,11 +115,13 @@ int Day2::CountIDSumOfPossibleGames(const Bag& bag) const
 		}
 	}
 
-	return sumOfIds;
+	return to_string(sumOfIds);
 }
 
-int Day2::CountIDSumOfPowersOfMinimalSet() const
+inline std::string Day<2>::PartTwo()
 {
+	partTwoDescriptor = "Sum of the power of the minimum sets";
+
 	int sumOfPowers = 0;
 
 	for (int i = 0; i < parser.GetNumberOfLines(); ++i)
@@ -114,7 +130,7 @@ int Day2::CountIDSumOfPowersOfMinimalSet() const
 		const int idEndIndex = static_cast<int>(line.find(':'));
 		line = line.substr(idEndIndex);
 
-		Bag bag{numeric_limits<int>::min(), numeric_limits<int>::min(), numeric_limits<int>::min() };
+		Bag bag{numeric_limits<int>::min(), numeric_limits<int>::min(), numeric_limits<int>::min()};
 
 		while (!line.empty())
 		{
@@ -180,5 +196,5 @@ int Day2::CountIDSumOfPowersOfMinimalSet() const
 		sumOfPowers += bag.GetPower();
 	}
 
-	return sumOfPowers;
+	return to_string(sumOfPowers);
 }
