@@ -36,7 +36,7 @@ inline std::string Day<3>::PartOne()
 
 			// Get number
 			string_view number = currLine.substr(nonSepChar, nextSepChar);
-			const int partNumber = Parser::GetNumberFromStringView(number);
+			const int partNumber = Parser::GetNumberFromStringView<int>(number);
 
 			// Determine if the number is valid
 
@@ -115,7 +115,7 @@ inline std::string Day<3>::PartTwo()
 				string_view leftSide = line.substr(0, leftMostIndex + 1);
 				if (const size_t lastPosBeforeNumber = leftSide.find_last_not_of("0123456789"); lastPosBeforeNumber != string_view::npos || !leftSide.contains('*'))
 				{
-					const int partNumber = Parser::GetNumberFromStringView(leftSide.substr(lastPosBeforeNumber + 1));
+					const int partNumber = Parser::GetNumberFromStringView<int>(leftSide.substr(lastPosBeforeNumber + 1));
 					gearRatio = gearRatio == 0 ? partNumber : gearRatio * partNumber;
 					++numberOfNeighbouringPartNumbers;
 				}
@@ -125,7 +125,7 @@ inline std::string Day<3>::PartTwo()
 				string_view rightSide = line.substr(rightMostIndex);
 				if (const size_t lastPosBeforeNumber = rightSide.find_first_not_of("0123456789"); lastPosBeforeNumber != string_view::npos || !rightSide.contains('*'))
 				{
-					const int partNumber = Parser::GetNumberFromStringView(rightSide.substr(0, lastPosBeforeNumber - rightMostIndex));
+					const int partNumber = Parser::GetNumberFromStringView<int>(rightSide.substr(0, lastPosBeforeNumber - rightMostIndex));
 					gearRatio = gearRatio == 0 ? partNumber : gearRatio * partNumber;
 					++numberOfNeighbouringPartNumbers;
 				}
@@ -159,7 +159,7 @@ inline std::string Day<3>::PartTwo()
 					}
 
 					const string_view num = prev.substr(numberStartIndex, numberEndIndex);
-					const int partNumber = Parser::GetNumberFromStringView(num);
+					const int partNumber = Parser::GetNumberFromStringView<int>(num);
 
 					gearRatio = gearRatio == 0 ? partNumber : gearRatio * partNumber;
 					++numberOfNeighbouringPartNumbers;
@@ -196,7 +196,7 @@ inline std::string Day<3>::PartTwo()
 					}
 
 					const string_view num = next.substr(numberStartIndex, numberEndIndex);
-					const int partNumber = Parser::GetNumberFromStringView(num);
+					const int partNumber = Parser::GetNumberFromStringView<int>(num);
 
 					gearRatio = gearRatio == 0 ? partNumber : gearRatio * partNumber;
 					++numberOfNeighbouringPartNumbers;

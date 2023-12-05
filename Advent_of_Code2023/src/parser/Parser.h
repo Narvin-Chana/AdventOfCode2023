@@ -5,6 +5,7 @@
 #include <string_view>
 #include <system_error>
 #include <vector>
+#include <format>
 
 class Parser
 {
@@ -16,7 +17,7 @@ public:
 	[[nodiscard]] std::string_view GetLine(uint32_t lineNumber) const;
 	[[nodiscard]] int GetNumberOfLines() const noexcept;
 
-	template <typename T = int> requires std::is_integral_v<T>
+	template <typename T> requires std::is_integral_v<T>
 	[[nodiscard]] static T GetNumberFromStringView(std::string_view str);
 
 	template <class ContainerT>
@@ -80,9 +81,9 @@ template <typename T> requires std::is_integral_v<T>
 T Parser::GetNumberFromStringView(const std::string_view str)
 {
 	T num;
-	if (const auto [ptr, ec] = std::from_chars(str.data(), str.data() + str.size(), num); ec == std::errc::invalid_argument)
+	if (const auto [ptr, ec] = std::from_chars(str.data(), str.data() + str.size(), num); ec == std::errc::invalid_argument || ec == std::errc::result_out_of_range)
 	{
-		throw std::exception("Invalid number was parsed...");
+		throw std::exception(std::format("Invalid number was parsed: {}", str).c_str());
 	}
 	return num;
 }
