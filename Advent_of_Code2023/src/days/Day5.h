@@ -45,11 +45,11 @@ public:
 		Parser::Split(plantableSeedsString, seedStrings, " ", true);
 
 		auto seedSet = seedStrings | views::transform([](auto& s)
-			{
-				return Parser::GetNumberFromStringView<uint64_t>(s);
-			});
+		{
+			return Parser::GetNumberFromStringView<uint64_t>(s);
+		});
 
-		plantableSeeds = { seedSet.begin(), seedSet.end() };
+		plantableSeeds = {seedSet.begin(), seedSet.end()};
 	}
 
 	vector<uint64_t> GetLocationOfSeeds() const
@@ -71,22 +71,28 @@ public:
 		Parser::Split(line, lineRanges, " ", true);
 
 		const SeedMapLine sml(lineRanges);
-		
+
 		maps[currentMapIndex].push_back(sml);
 	}
+
 private:
 	uint64_t IterateOnMaps(uint64_t seed) const
 	{
-		/*return accumulate(maps.begin(), maps.end(), seed, [](const uint64_t currentSeed, const vector<SeedMapLine>& m)
-			{
-				for (const auto & seedMapLine : m)
-				{
-					if (const optional<uint64_t> res = seedMapLine.GetSeedDest(currentSeed); res != nullopt)
-						return res.value();
-				}
+		//return accumulate(maps.begin(),
+		//				  maps.end(),
+		//				  seed,
+		//				  [](const uint64_t currentSeed, const vector<SeedMapLine>& m)
+		//				  {
+		//					  for (const auto& seedMapLine : m)
+		//					  {
+		//						  if (const optional<uint64_t> res = seedMapLine.GetSeedDest(currentSeed); res != nullopt)
+		//							  return res.value();
+		//					  }
 
-				return currentSeed;
-			});*/
+		//					  return currentSeed;
+		//				  });
+
+		// Equivalent to accumulate
 		for (const vector<SeedMapLine>& m : maps)
 		{
 			for (const SeedMapLine& seedMapLine : m)
