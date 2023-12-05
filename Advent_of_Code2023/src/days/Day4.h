@@ -23,7 +23,7 @@ struct CardDeck
 			return winningNumbers.contains(num);
 		});
 
-		return max(static_cast<const int&>(pow(2, static_cast<int>(std::distance(score.begin(), score.end())) - 1)), 0);
+		return max(static_cast<const int&>(powf(2, static_cast<float>(static_cast<int>(std::distance(score.begin(), score.end()))) - 1)), 0);
 	}
 
 	int GetScore()
