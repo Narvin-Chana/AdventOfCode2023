@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <chrono>
+
+#include "color/ColorOutput.h"
 #include "parser/Parser.h"
 using namespace std;
 
@@ -37,11 +39,11 @@ struct Day
 template <int DayNumber>
 void Day<DayNumber>::ExecuteParts()
 {
-	std::cout << format("Day {}: \n", DayNumber);
+	std::cout << ColorOutput(format("Day {}: \n", DayNumber), ColorTable::CYAN);
 
 	auto [partOneResult, dt1] = Test([&] { return PartOne(); });
-	std::cout << "\tPart One: " << (!partOneDescriptor.empty() ? partOneDescriptor + ": " : "") << partOneResult << " in " << chrono::duration_cast<chrono::microseconds>(dt1) << '\n';
+	std::cout << ColorOutput("\tPart One: ", ColorTable::BLUE) << (!partOneDescriptor.empty() ? partOneDescriptor + ": " : "") << ColorOutput(partOneResult, ColorTable::GREEN) << " in " << ColorOutput(to_string(chrono::duration_cast<chrono::microseconds>(dt1).count()) + "ms", ColorTable::RED) << '\n';
 
 	auto [partTwoResult, dt2] = Test([&] { return PartTwo(); });
-	std::cout << "\tPart Two: " << (!partTwoDescriptor.empty() ? partTwoDescriptor + ": " : "") << partTwoResult << " in " << chrono::duration_cast<chrono::microseconds>(dt2) << '\n';
+	std::cout << ColorOutput("\tPart Two: ", ColorTable::BLUE) << (!partTwoDescriptor.empty() ? partTwoDescriptor + ": " : "") << ColorOutput(partTwoResult, ColorTable::GREEN) << " in " << ColorOutput(to_string(chrono::duration_cast<chrono::microseconds>(dt2).count()) + "ms", ColorTable::RED) << '\n';
 }

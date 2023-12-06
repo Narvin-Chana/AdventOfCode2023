@@ -135,6 +135,7 @@
     <ClCompile Include="src\Advent_of_Code2023.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\color\ColorOutput.h" />
     <ClInclude Include="src\days\Day4.h" />
     <ClInclude Include="src\days\Day3.h" />
     <ClInclude Include="src\days\Day2.h" />
@@ -142,6 +143,7 @@
     <ClInclude Include="src\DayExecutor.h" />
     <ClInclude Include="src\Day.h" />
     <ClInclude Include="src\days\Day5.h" />
+    <ClInclude Include="src\days\Day6.h" />
     <ClInclude Include="src\parser\Parser.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
