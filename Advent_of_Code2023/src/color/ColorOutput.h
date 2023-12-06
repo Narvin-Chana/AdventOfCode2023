@@ -36,7 +36,6 @@ struct ColorOutput
 
 	friend std::ostream& operator<<(std::ostream& os, const ColorOutput& co)
 	{
-		const std::string str = std::string("\x1B[") + std::format("{}m", std::to_string(co.color)) + co.str + std::string("\033[0m");
-		return os << str;
+		return os << std::string("\x1B[") + std::format("{}m", std::to_string(co.color)) + co.str + std::string("\033[0m");
 	}
 };
