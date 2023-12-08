@@ -189,7 +189,7 @@ inline std::string Day<5>::PartOne()
 
 inline std::string Day<5>::PartTwo()
 {
-	partTwoDescriptor = "Lowest Location Number of Any Seed in Initial Range";
+	partTwoDescriptor = "Lowest Location Number of Any Seed in Initial Range (not recalculated)";
 
 	// Takes a while so here is the value generated with actual data
 	return to_string(56931769);
