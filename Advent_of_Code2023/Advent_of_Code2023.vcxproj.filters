@@ -53,5 +53,11 @@
     <ClInclude Include="src\color\ColorOutput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\days\Day7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\days\Day8.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

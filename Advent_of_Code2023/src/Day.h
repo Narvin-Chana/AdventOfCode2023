@@ -19,6 +19,11 @@ auto Test(F f, Args&&... args)
 template <int DayNumber>
 struct Day
 {
+	struct IsImplemented
+	{
+		static constexpr bool value = false;
+	};
+
 	std::string inputFile;
 	Parser parser;
 	std::string partOneDescriptor;
