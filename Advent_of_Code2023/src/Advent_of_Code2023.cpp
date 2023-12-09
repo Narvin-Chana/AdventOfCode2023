@@ -8,10 +8,11 @@
 #include "days/Day6.h"
 #include "days/Day7.h"
 #include "days/Day8.h"
+#include "days/Day9.h"
 
 int main()
 {
-	static constexpr size_t DayCount = 8;
+	static constexpr size_t DayCount = 9;
 
 	using AllDays = GenerateDaySequence<DayCount>::type;
 	auto days = AllDays{};
